@@ -35,7 +35,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false), ipv4_proxy(NULL), ipv6_proxy(NULL) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "Phore-seeder\n"
+    static const char *help = "Helix-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -397,7 +397,7 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dns0.phore.io", "dns1.phore.io", "dns2.phore.io", "dns3.phore.io", "dns4.phore.io", "dns5.phore.io", ""};
+static const string mainnet_seeds[] = {"dns0.helix-crypto.com", "dns1.helix-crypto.com", "dns2.helix-crypto.com", "dns3.helix-crypto.com", "dns4.helix-crypto.com", "dns5.helix-crypto.com", ""};
 static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
@@ -452,10 +452,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0x47;
-      pchMessageStart[1] = 0x76;
-      pchMessageStart[2] = 0x65;
-      pchMessageStart[3] = 0xba;
+      pchMessageStart[0] = 0x4f;
+      pchMessageStart[1] = 0x6c;
+      pchMessageStart[2] = 0x7e;
+      pchMessageStart[3] = 0x7a;
       seeds = testnet_seeds;
       fTestNet = true;
   }
