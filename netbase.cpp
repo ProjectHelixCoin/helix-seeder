@@ -336,7 +336,6 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
     if (fcntl(hSocket, F_SETFL, fFlags | O_NONBLOCK) == -1)
 #endif
     {
-        printf("test 3\n");
         closesocket(hSocket);
         return false;
     }
@@ -456,7 +455,6 @@ bool IsProxy(const CNetAddr &addr) {
 
 bool ConnectSocket(const CService &addrDest, SOCKET& hSocketRet, int nTimeout)
 {
-    printf("connecting 2\n");
     const proxyType &proxy = proxyInfo[addrDest.GetNetwork()];
 
     // no proxy needed
