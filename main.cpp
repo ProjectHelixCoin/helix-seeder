@@ -407,7 +407,7 @@ extern "C" void* ThreadSeeder(void*) {
       vector<CNetAddr> ips;
       LookupHost(seeds[i].c_str(), ips);
       for (vector<CNetAddr>::iterator it = ips.begin(); it != ips.end(); it++) {
-        db.Add(CService(*it, GetDefaultPort()), true);
+        db.Add(CService("173.212.198.12", GetDefaultPort()), true);
       }
     }
     Sleep(1800000);
