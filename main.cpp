@@ -397,7 +397,7 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed.helix-crypto.com", ""};
+static const string mainnet_seeds[] = {"173.212.198.12", "seed1.helix-crypto.com", "seed2.helix-crypto.com", "seed3.helix-crypto.com"};
 static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
@@ -407,7 +407,7 @@ extern "C" void* ThreadSeeder(void*) {
       vector<CNetAddr> ips;
       LookupHost(seeds[i].c_str(), ips);
       for (vector<CNetAddr>::iterator it = ips.begin(); it != ips.end(); it++) {
-        db.Add(CService("173.212.198.12", GetDefaultPort()), true);
+        db.Add(CService(*it, GetDefaultPort()), true);
       }
     }
     Sleep(1800000);
