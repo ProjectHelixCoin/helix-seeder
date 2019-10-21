@@ -397,7 +397,7 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed1.helix-crypto.com", "seed2.helix-crypto.com", "seed3.helix-crypto.com"};
+static const string mainnet_seeds[] = {"seed1.helix-crypto.com", "seed2.helix-crypto.com", "seed3.helix-crypto.com", ""};
 static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
